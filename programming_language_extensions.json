@@ -1,0 +1,10 @@
+[
+    {
+        "name": "python",
+        "extensions": [".py"]
+    },
+    {
+        "name": "javascript",
+        "extensions": [".js"]
+    }
+]
