@@ -4,13 +4,13 @@ import requests
 import time
 
 from bs4 import BeautifulSoup
-from collections import defaultdict
 
-first_year = 2015
-last_year = 2023
-first_day = 2
-last_day = 25
-USER_SESSION_ID = '53616c7465645f5f904a68e60707f224da60a88fa6bbcbffe9cfe3666726bd43c54434544cf5ea82e5ec5070d435196f4c860c51a3c0851fccea5e24ccaac9ae'
+FIRST_YEAR = 2024
+LAST_YEAR = 2024
+FIRST_DAY = 1
+LAST_DAY = 25
+# how to get session_id: https://github.com/wimglenn/advent-of-code-wim/issues/1
+USER_SESSION_ID = '53616c7465645f5ff6761cbe238d9d56a3c6f1037115199de65786ad1f9724beccc2bd549d54ea33a178f34f9c45b5f8585feff8e07908ab64fffb55524a5560'
 OUTPUT_FOLDER = 'D:\code_projects\Advent of Code'
 OVERWRITE = False
 MAX_RETRIES = 3
@@ -66,12 +66,12 @@ def get_inputs(year, day):
 
 def create_structure(extensions=['.py']):
 
-    for y in range(max(first_year, 2015), last_year + 1):
+    for y in range(max(FIRST_YEAR, 2015), LAST_YEAR + 1):
         year_folder = os.path.join(OUTPUT_FOLDER, str(y))
         if not os.path.exists(year_folder):
             os.mkdir(year_folder)
             
-        for d in range(first_day, min(last_day, 25) + 1):
+        for d in range(FIRST_DAY, min(LAST_DAY, 25) + 1):
             str_d = f'0{d}' if d < 10 else str(d)
             day_folder = os.path.join(year_folder, str_d)
             if not os.path.exists(day_folder):

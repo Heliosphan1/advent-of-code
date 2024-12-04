@@ -1,5 +1,4 @@
 # Advent of Code - 2023 - day 8
-import asyncio
 
 def solve_part_one():
     with open("input.txt") as input_file:
@@ -53,8 +52,7 @@ def solve_part_two():
     #         if done:
     #             print(steps)
     #             return steps
-    
- 
+
         
         
 solve_part_two()

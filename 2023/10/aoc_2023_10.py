@@ -2,7 +2,7 @@
    
 
 field = []
-with open("input.txt") as input_file:
+with open("test_input.txt") as input_file:
     for i, line in enumerate(input_file.readlines()):
         pos = line.find('S')
         if pos >= 0:
@@ -50,7 +50,8 @@ def search_next(node, prev_node):
     return (x + dx1, y + dy1)
 
 steps = 1
-on_path = set(start)
+on_path = set()
+on_path.add(start)
 prev_node = start
 node = search_first(start)
 while True:
@@ -65,3 +66,19 @@ while True:
         
 part1_ans = steps//2 + steps % 2 
 print(steps//2 + steps % 2)
+
+print(field)
+print(on_path)
+inside_loop = 0
+for y, line in enumerate(field):
+    outside = True
+    
+    for x, ch in enumerate(line):
+        if (x, y) in on_path and field[y][x] != '-':
+            print(y, x, outside)
+            outside = not outside
+        elif (x, y) not in on_path and not outside:
+            print('adding', y, x, ch)
+            inside_loop += 1
+
+print(inside_loop)

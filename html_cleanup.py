@@ -1,5 +1,7 @@
 import os
 
+FOLDER_PREFIX = '2024'
+
 def remove_tags(line: str) -> str:
     start = None
     new_line = []
@@ -15,7 +17,7 @@ def remove_tags(line: str) -> str:
 
 def main():
     for item in os.listdir():
-        if item.startswith('20'):
+        if item.startswith(FOLDER_PREFIX):
             for l2_item in os.listdir(item):
                 desc = os.path.join(item, l2_item, 'description.html')
                 new_desc = os.path.join(item, l2_item, 'description.txt')
